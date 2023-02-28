@@ -17,7 +17,7 @@ function Profile() {
     // Safe to add dispatch to the dependencies array
   }, [])
 
-  console.log("user", user)
+
 
   return (
     <div>
