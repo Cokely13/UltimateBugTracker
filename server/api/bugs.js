@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const bugId = req.params.id
-    const bug = await Event.findByPk(req.params.id, {include: User});
+    const bug = await Bug.findByPk(req.params.id, {include: User});
     res.json(bug);
   } catch (err) {
     next(err);
