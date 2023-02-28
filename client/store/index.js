@@ -5,10 +5,14 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import bugsReducer from './allBugsStore'
 import auth from './auth'
 import singleBugReducer from './singleBugStore'
+import usersReducer from './allUsersStore'
+import singleUserReducer from './singleUserStore'
 
 const reducer = combineReducers({ auth,
 allBugs: bugsReducer,
-singleBug: singleBugReducer })
+singleBug: singleBugReducer,
+allUsers: usersReducer,
+singleUser: singleUserReducer })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
