@@ -9,7 +9,8 @@ import {fetchUsers} from '../store/allUsersStore'
 function BugDetail() {
   const dispatch = useDispatch()
   const {  bugId } = useParams();
-  const [assign, setAssign] = useState();
+  const [assignId, setAssignId] = useState();
+  const [assignName, setAssignName] = useState();
   const bug = useSelector((state) => state.singleBug)
   const users = useSelector((state) => state.allUsers)
   useEffect(() => {
@@ -21,13 +22,16 @@ function BugDetail() {
 
   const handleChange = (event) => {
     event.preventDefault()
-    setAssign(event.target.value)
-    console.log("he",assign)
+    setAssignId(event.target.value)
+    const person = users.filter((user)=>user.id == event.target.value)
+    setAssignName(person[0].username)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    bug.assigned = assign
+    bug.userId = assignId
+    bug.user = assignName
+    bug.assigned = assignName
     bug.status = "Working"
     dispatch(updateSingleBug(bug))
   }
@@ -45,7 +49,7 @@ function BugDetail() {
           <div style={{marginLeft: "35px", marginBottom: "35px"}}>
       <select onChange={handleChange} name="filterEvents" className='custom-select'>
       <option value="">Assign Bug</option>
-            {users.map((event) => <option key={event.id} value={event.username}>{event.username}</option>)}
+            {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
               </select>
               </div>
               <button onClick={handleSubmit}>Assign</button>
