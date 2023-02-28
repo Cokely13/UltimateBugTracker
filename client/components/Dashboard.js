@@ -18,15 +18,20 @@ function Dashboard() {
 
   return (
     <div>
-    <div>Dashboard</div>
-    {bugs.filter((bug) => bug.priority == "Low").length}
-    <div>
-    {bugs.filter((bug) => bug.priority == "Medium").length}
-    </div>
-    <div>
-    {bugs.filter((bug) => bug.priority == "High").length}
-    </div>
-    </div>
+    <div className="card border border-5  border-warning rounded text-center"  style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }}>
+  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Low</h2>
+  <h3 className="card-text">{bugs.filter((bug) => bug.priority == "Low").length}</h3>
+  </div>
+  <div className="card border border-5  border-warning rounded text-center" style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }}>
+  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Medium</h2>
+  <h3 className="card-text">{bugs.filter((bug) => bug.priority == "Medium").length}</h3>
+  </div>
+  <div className="card border border-5  border-warning rounded text-center" style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }}>
+  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>High</h2>
+  <h3 className="card-text">{bugs.filter((bug) => bug.priority == "High").length}</h3>
+  </div>
+  </div>
+
 
   )
 }
