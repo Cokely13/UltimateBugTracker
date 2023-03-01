@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useHistory  } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { fetchBug, updateSingleBug } from '../store/singleBugStore'
@@ -8,10 +8,14 @@ import {fetchUsers} from '../store/allUsersStore'
 
 function BugDetail() {
   const dispatch = useDispatch()
+  let history = useHistory();
   const {  bugId } = useParams();
   const [assignId, setAssignId] = useState();
   const [assignName, setAssignName] = useState();
   const [showButton, setShowButton] = useState();
+  const [updateStatus, setUpdateStatus] = useState();
+  const [updateAssign, setUpdateAssign] = useState();
+  const [status, setStatus] = useState();
   const bug = useSelector((state) => state.singleBug)
   const users = useSelector((state) => state.allUsers)
   useEffect(() => {
@@ -21,7 +25,17 @@ function BugDetail() {
     dispatch(fetchUsers())
   }, [])
 
+  const handleClick = (event) => {
+    event.preventDefault()
+    setUpdateStatus(1)
+    setUpdateAssign(0)
+  }
 
+  const handleClick2 = (event) => {
+    event.preventDefault()
+    setUpdateAssign(1)
+    setUpdateStatus(0)
+  }
 
   const handleChange = (event) => {
     event.preventDefault()
@@ -34,6 +48,12 @@ function BugDetail() {
     const person = users.filter((user)=>user.id == event.target.value)
     setAssignName(person[0].username)
     setShowButton(1)}
+  }
+
+  const handleChange2 = (event) => {
+    event.preventDefault()
+    setStatus(event.target.value)
+    setShowButton(2)
   }
 
   const handleSubmit = (event) => {
@@ -51,7 +71,20 @@ function BugDetail() {
     bug.status = "Working"
     bug.dateAssigned = new Date}
     setShowButton("")
+    setUpdateAssign("")
     dispatch(updateSingleBug(bug))
+  }
+
+  const handleSubmit2 = (event) => {
+    event.preventDefault()
+    bug.status = status
+    if(status == "Fixed") { bug.dateFixed = new Date} else{
+      bug.dateFixed = null
+    }
+    setShowButton("")
+    setUpdateStatus("")
+    dispatch(updateSingleBug(bug))
+    history.push(`/bugs/${bug.id}`);
   }
 
   return (
@@ -62,9 +95,26 @@ function BugDetail() {
           <h1>Name: {bug.name}</h1>
           <h1>Description: {bug.description}</h1>
           <h1>Steps: {bug.steps}</h1>
-          <h1>Status: {bug.status}</h1>
-          <h1>Assigned: {bug.assigned}</h1>
-          <div></div>
+          <h1>Status: {bug.status} <h5><button className='btn btn-primary' style={{marginTop: "15px"}} onClick={handleClick}>Update Status</button></h5></h1>
+          {updateStatus == 1 ?
+         <div>
+          <div>
+          <div style={{ marginBottom: "35px"}}>
+          <select onChange={handleChange2} name="filterEvents" className='custom-select'>
+      <option value="">Update Status</option>
+      <option value="New">New</option>
+          <option value="Working">Working</option>
+          <option value="Fixed">Fixed</option>
+              </select>
+              </div>
+
+              {showButton == "2" ?  <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={handleSubmit2}>Submit</button>
+              : <div></div>}
+              </div>
+              </div> : <div></div>}
+          <h1>Assigned: {bug.assigned} <h5><button className='btn btn-primary' style={{marginTop: "15px"}} onClick={handleClick2}>Update Assigned</button></h5></h1>
+         {updateAssign == 1 ?
+         <div>
           {bug.assigned == "None" ?
           <div>
           <div style={{ marginBottom: "35px"}}>
@@ -86,7 +136,7 @@ function BugDetail() {
               </select>
               </div>
               {showButton == "1" ? <button className='btn btn-secondary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={handleSubmit}>Re-Assign</button> : <div></div>}
-              </div>}
+              </div>} </div> : <div></div>}
         </div>
       </div>
      : <div>No Bugs</div>}

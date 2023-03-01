@@ -94,7 +94,7 @@ function Bugs() {
   <div className="container text-center mt-2">
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
-  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: {bug.assigned}</h3>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
   <div>
           {/* <div style={{marginTop: "15px", marginBottom: "15px"}}>
       <select onChange={event => handleChange2(event, bug)} name="filterEvents" className='custom-select'>
@@ -131,7 +131,7 @@ function Bugs() {
   <div className="container text-center mt-2">
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name:<Link to={`/bugs/${bug.id}`}>  {bug.name}</Link></h2>
-  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: {bug.assigned}</h3>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned:<Link to={`/users/${bug.userId}`}>  {bug.assigned} </Link></h3>
   <div>
           <div style={{marginTop: "15px", marginBottom: "15px"}}>
       <select onChange={event => handleChange2(event, bug)} name="filterEvents" className='custom-select'>
@@ -158,7 +158,7 @@ function Bugs() {
   <div className="container text-center mt-2">
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name:<Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
-  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Status: {bug.status}</h3>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}>  {bug.assigned} </Link></h3>
   <div>
           <div style={{marginTop: "15px", marginBottom: "15px"}}>
       <select onChange={event => handleChange2(event, bug)} name="filterEvents" className='custom-select'>
@@ -181,7 +181,7 @@ function Bugs() {
   <div className="container text-center mt-2">
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}>{bug.name}</Link></h2>
-  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Status: {bug.status}</h3>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}>  {bug.assigned}</Link></h3>
   {bug.status == "New" ?    <div>
           <div style={{ marginBottom: "35px"}}>
       <select onChange={event => handleChange3(event, bug)}  name="filterEvents" className='custom-select'>
