@@ -17,21 +17,31 @@ function Dashboard() {
   }, [])
 
   return (
-    <div>
-    <div className="card border border-5  border-warning rounded text-center"  style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }}>
-  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Low</h2>
-  <h3 className="card-text">{bugs.filter((bug) => bug.priority == "Low").length}</h3>
-  </div>
-  <div className="card border border-5  border-warning rounded text-center" style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }}>
-  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Medium</h2>
-  <h3 className="card-text">{bugs.filter((bug) => bug.priority == "Medium").length}</h3>
-  </div>
-  <div className="card border border-5  border-warning rounded text-center" style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }}>
-  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>High</h2>
-  <h3 className="card-text">{bugs.filter((bug) => bug.priority == "High").length}</h3>
+    <div className="row">
+    <div className='col'>
+    <div className="container text-center mt-2">
+    <Link to={`/bugs`}><div className="card border border-5  border-primary rounded text-center"  style={{width:"18rem"}}>
+  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Priority: Low</h2>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}># of Bugs: {bugs.filter((bug) => bug.priority == "Low").length}</h3>
+  </div></Link>
   </div>
   </div>
-
+  <div className='col'>
+  <div className="container text-center mt-2">
+  <Link to={`/bugs`}><div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
+  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Priority: Medium</h2>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}># of Bugs: {bugs.filter((bug) => bug.priority == "Medium").length}</h3>
+  </div></Link>
+  </div>
+  </div>
+  <div className='col'>
+    <div className="container text-center mt-2"></div>
+    <Link to={`/bugs`}><div className="card border border-5  border-primary rounded text-center" style={{width:"18rem" }}>
+  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Priority: High</h2>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}># of Bugs: {bugs.filter((bug) => bug.priority == "High").length}</h3>
+  </div></Link>
+  </div>
+  </div>
 
   )
 }

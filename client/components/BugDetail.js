@@ -39,22 +39,26 @@ function BugDetail() {
   return (
     <div>
     {bug ?
-        <div key={(bug.id)}>
-          <h1>{bug.name}</h1>
-          <h1>{bug.description}</h1>
-          <h1>{bug.steps}</h1>
-          <h1>{bug.status}</h1>
-          <h1>{bug.assigned}</h1>
+        <div className='col' key={(bug.id)}>
+          <div className="card border border-5  border-primary rounded text-center" style={{width:"40rem", marginLeft: "auto", marginRight: "auto"}}>
+          <h1>Name: {bug.name}</h1>
+          <h1>Description: {bug.description}</h1>
+          <h1>Steps: {bug.steps}</h1>
+          <h1>Status: {bug.status}</h1>
+          <h1>Assigned: {bug.assigned}</h1>
           <div></div>
-          <div style={{marginLeft: "35px", marginBottom: "35px"}}>
+          {bug.assigned == "None" ?
+          <div>
+          <div style={{ marginBottom: "35px"}}>
       <select onChange={handleChange} name="filterEvents" className='custom-select'>
       <option value="">Assign Bug</option>
             {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
               </select>
               </div>
-              <button onClick={handleSubmit}>Assign</button>
+              <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={handleSubmit}>Assign</button>
+              </div> : <div></div>}
         </div>
-
+      </div>
      : <div>No Bugs</div>}
 
   </div>
