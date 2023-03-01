@@ -9,6 +9,7 @@ import BugDetail from './components/BugDetail'
 import UserPage from './components/UserPage';
 import Profile from './components/Profile'
 import AddBug from './components/AddBug';
+import FixedBug from './components/FixedBug';
 
 /**
  * COMPONENT
@@ -29,6 +30,7 @@ class Routes extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/bugs" component={Bugs} />
             <Route exact path="/bugs/add" component={AddBug} />
+            <Route exact path="/bugs/fixed" component={FixedBug} />
             <Route exact path="/bugs/:bugId" component={BugDetail} />
             <Route exact path="/users/:userId" component={UserPage} />
             <Redirect to="/home" />

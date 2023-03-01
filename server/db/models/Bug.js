@@ -20,8 +20,8 @@ const Bug = db.define('bug', {
     defaultValue: Sequelize.NOW
   },
   status: {
-    type: Sequelize.ENUM("Unassigned", "Working", "Fixed"),
-    defaultValue: "Unassigned",
+    type: Sequelize.ENUM("New", "Working", "Fixed"),
+    defaultValue: "New",
     allowNull: false
   },
   priority: {
@@ -32,6 +32,12 @@ const Bug = db.define('bug', {
   assigned: {
     type: Sequelize.STRING,
     defaultValue: "None",
+  },
+  dateAssigned: {
+    type: Sequelize.DATEONLY,
+  },
+  dateFixed: {
+    type: Sequelize.DATEONLY,
   },
 
 })

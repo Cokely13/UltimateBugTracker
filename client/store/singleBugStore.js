@@ -34,7 +34,7 @@ export const updateSingleBug = (bug, history) => {
         await axios.put(`/api/bugs/${bug.id}`, bug);
         const { data: bugData } = await axios.get(`/api/bugs/${bug.id}`);
         dispatch(_updateSingleBug(bugData));
-        history.push(`/bugs/${bug.id}`)
+        // history.push(`/bugs/${bug.id}`)
       }
      catch (error) {
       console.log("BUG", bug)
