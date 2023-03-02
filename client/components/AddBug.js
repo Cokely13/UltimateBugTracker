@@ -62,48 +62,54 @@ function AddBug() {
 
 
   return (
-  <div >
-    <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Add Bug</h1>
+    <div>
+  <div style={{marginLeft: "25px"}} >
+    <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "50px"}}>Add Bug</h1>
     <form>
-    <div className="container">
-      <div >
-        <div className='row'>
-        <label> <h2 htmlFor="name"> Name: </h2></label>
-          <input name='name' onChange={handleChange}  type="text" placeholder="Bug Name"/>
+        <div className="form-group row">
+        <label class="col-sm-2 col-form-label" style={{marginLeft: "25px"}}> <h2 htmlFor="name"> Bug Name </h2></label>
+        <div className="col-sm-10" style={{width: "30rem"}} >
+          <input  style={{width: "30rem", height: "50px"}} name='name' onChange={handleChange}  type="text" placeholder="   Bug Name"/>
+          </div>
         </div>
-        <div className='row'>
-        <label> <h2 htmlFor="description"> Description: </h2></label>
-          <input name='descriptuon' onChange={handleChange2}  type="text" placeholder="Describe the Bug"/>
+        <div className="form-group row">
+        <label class="col-sm-2 col-form-label" style={{marginLeft: "25px"}}> <h2 htmlFor="description"> Description </h2></label>
+        <div className="col-sm-10" style={{width: "20rem"}}>
+          <input name='description' onChange={handleChange2} style={{width: "30rem", height: "50px"}} type="text" placeholder="   Describe the Bug"/>
         </div>
-        <div className='row'>
-        <label> <h2 htmlFor="steps"> Steps: </h2></label>
-          <input name='steps' onChange={handleChange3} type="text" placeholder="Steps to bug"/>
+        </div>
+        <div className="form-group row">
+        <label class="col-sm-2 col-form-label" style={{marginLeft: "25px"}}> <h2 htmlFor="steps"> Steps </h2></label>
+        <div className="col-sm-10" style={{width: "20rem"}}>
+          <input name='steps' onChange={handleChange3} style={{width: "30rem", height: "50px"}} type="text" placeholder="   Steps to bug"/>
+        </div>
         </div>
         <div>
-        <div className='row' >
-          <label> <h2 htmlFor="priority" >Priority: </h2></label>
-          <select  name="priority" onChange={handleChange4}>
+        <div className="form-group row">
+          <label class="col-sm-2 col-form-label"> <h2 htmlFor="priority" style={{marginLeft: "15px"}} >Priority </h2></label>
+          <div className="col-sm-10" style={{width: "20rem"}} >
+          <select  name="priority" onChange={handleChange4} style={{width: "10rem", height: "50px", marginLeft: "9rem"}}>
         <option disabled selected value="priority">Select Priority</option>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
           </select>
          </div>
-        <div >
-          <label> <h2 htmlFor="assigned" >Assign: </h2></label>
-          <div>
-          <select  name="assigned" onChange={handleChange5} className="assigned">
+         </div>
+        <div className="form-group row">
+          <label class="col-sm-2 col-form-label"> <h2 htmlFor="assigned" style={{marginLeft: "15px"}} >Assign </h2></label>
+          <div className="col-sm-10" style={{width: "20rem"}}>
+          <select style={{width: "10rem", height: "50px", marginLeft: "9rem"}}  name="assigned" onChange={handleChange5} className="assigned">
         <option disabled selected value="assigned">Assign Bug</option>
         {users.map((( user) => <option key={user.id} value={user.id}>{user.username}</option>))}
           </select>
         </div> </div>
       </div>
-      </div>
-      </div>
     </form>
     <div className="text-center">
     <button className="btn btn-primary text-center"  onClick={handleClick}>Create Bug</button>
     </div>
+  </div>
   </div>
   )
 }
