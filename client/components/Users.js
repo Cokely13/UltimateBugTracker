@@ -14,10 +14,12 @@ function Users() {
 
   return (
     <div>
+      <h1 className='text-center'><u>Users</u></h1>
       {users.map((user) => {
         return(
           <div key={user.id}>
-            <Link to={`/users/${user.id}`} >{user.username}</Link>
+           <h1><Link to={`/users/${user.id}`} >{user.username}</Link></h1>
+            <h2># of Bugs: {user.bugs.length}</h2>
           </div>
         )
       })}

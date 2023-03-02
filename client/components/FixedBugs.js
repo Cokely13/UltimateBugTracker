@@ -16,9 +16,10 @@ function FixedBug() {
   }, [])
   return (
     <div>
+      <h1 className='text-center'><u>Fixed Bugs</u></h1>
       {bugs? bugs.filter((bug)=>bug.status == 'Fixed').map((bug) => {
       return(
-        <div key={bug.id}>{bug.date} : {bug.name} </div>
+        <div className='text-center' key={bug.id}>{bug.date} : {bug.name} by {bug.assigned} </div>
       )}) : <div></div>
 }
 

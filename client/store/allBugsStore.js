@@ -37,7 +37,6 @@ export const createBug = (bug, history) => {
   return async (dispatch) => {
     const { data: created } = await Axios.post("/api/bugs", bug);
     dispatch(_createBug(created));
-    history.push("/bugs");
   };
 };
 
@@ -45,7 +44,6 @@ export const deleteBug = (id, history) => {
   return async (dispatch) => {
     const { data: bug } = await Axios.delete(`/api/bugs/${id}`);
     dispatch(_deleteBug(bug));
-    history.push("/bugs");
   };
 };
 

@@ -44,14 +44,11 @@ function Bugs() {
   const handleSubmit2 = (event, bug) => {
     event.preventDefault()
     bug.userId = assignId
-    console.log("assignId", assignId)
     bug.user = assignName
-    console.log("assignName", assignName)
     bug.assigned = assignName
     bug.status = "Working"
     // bug.user.username = assignName
     bug.dateAssigned = new Date
-    console.log("bugggg", bug)
     dispatch(updateSingleBug(bug))
     history.push("/bugs");
   }
@@ -96,8 +93,9 @@ function Bugs() {
 
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
   <div className="container text-center mt-2">
-  <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
+  {bug.priority == "High" ?<div className="card border border-5  border-warning rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
+  <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
   <div>
             <div>
@@ -110,7 +108,22 @@ function Bugs() {
               {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
               </div>
               </div>
-  </div>
+  </div> : <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
+  <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
+  <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
+  <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
+  <div>
+            <div>
+          <div style={{ marginBottom: "35px"}}>
+      <select onChange={event => handleChange3(event, bug)}  name="filterEvents" className='custom-select'>
+      <option value="">Assign Bug</option>
+            {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
+              </select>
+              </div>
+              {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+              </div>
+              </div>
+  </div>}
   </div>
   </div>
       )
@@ -123,9 +136,27 @@ function Bugs() {
     {bugs.filter((bug) => bug.status == "Working").map((bug) => {
       return(
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
+        <div className="container text-center mt-2">
+        {bug.priority == "High" ?<div className="card border border-5  border-warning rounded text-center" style={{width:"18rem"}}>
+        <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
+        <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
+        <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
+        <div>
+                  <div>
+                <div style={{ marginBottom: "35px"}}>
+            <select onChange={event => handleChange3(event, bug)}  name="filterEvents" className='custom-select'>
+            <option value="">Assign Bug</option>
+                  {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
+                    </select>
+                    </div>
+                    {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+                    </div>
+                    </div>
+        </div> : <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
   <div className="container text-center mt-2">
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name:<Link to={`/bugs/${bug.id}`}>  {bug.name}</Link></h2>
+  <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned:<Link to={`/users/${bug.userId}`}>  {bug.assigned} </Link></h3>
   <div>
           <div style={{marginTop: "15px", marginBottom: "15px"}}>
@@ -140,6 +171,8 @@ function Bugs() {
               </div>
   </div>
   </div>
+  </div>}
+  </div>
   </div>
       )
     })} </div>
@@ -153,6 +186,7 @@ function Bugs() {
   <div className="container text-center mt-2">
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name:<Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
+  <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}>  {bug.assigned} </Link></h3>
   <div>
           <div style={{marginTop: "15px", marginBottom: "15px"}}>
@@ -171,11 +205,27 @@ function Bugs() {
       )
     })} </div></div>: bugs.filter((bug) => bug.status == statusView).map((bug) => {
       return(
-
-        <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
-  <div className="container text-center mt-2">
+  <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
+        <div className="container text-center mt-2">
+        {bug.priority == "High" ?<div className="card border border-5  border-warning rounded text-center" style={{width:"18rem"}}>
+        <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
+        <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
+        <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
+        <div>
+                  <div>
+                <div style={{ marginBottom: "35px"}}>
+            <select onChange={event => handleChange3(event, bug)}  name="filterEvents" className='custom-select'>
+            <option value="">Assign Bug</option>
+                  {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
+                    </select>
+                    </div>
+                    {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+                    </div>
+                    </div>
+        </div> :
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}>{bug.name}</Link></h2>
+  <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}>  {bug.assigned}</Link></h3>
   {bug.status == "New" ?    <div>
           <div style={{ marginBottom: "35px"}}>
@@ -196,7 +246,7 @@ function Bugs() {
               </div>
             {bugId == bug.id ?  <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit(event, bug)}>Submit</button> : <div></div>}
               </div>}
-  </div>
+  </div>}
   </div>
   </div>
       )
