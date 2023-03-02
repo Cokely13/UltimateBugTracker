@@ -17,7 +17,7 @@ function Dashboard() {
   }, [])
 
   return (
-    <div className="row">
+    <div className="row" style={{marginTop: "35px", marginBottom: "15px"}}>
     <div className='col'>
     <div className="container text-center mt-2">
     <Link to={`/bugs/low`}><div className="card border border-5  border-primary rounded text-center"  style={{width:"18rem"}}>

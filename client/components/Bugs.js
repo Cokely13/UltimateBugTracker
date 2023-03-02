@@ -67,7 +67,12 @@ function Bugs() {
 
   return (
     <div className="row">
-       <div style={{marginLeft: "35px"}}>
+
+              <div>
+      <div className='text-center' style={{marginTop: "35px", marginBottom: "15px"}}>
+    <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto"}}>{statusView} Bugs</h1>
+    </div>
+    <div style={{marginLeft: "35px"}}>
       <select onChange={handleChange} name="filterEvents" className='custom-select'>
               <option value="All">Filter by Status</option>
               <option value="New">New</option>
@@ -76,11 +81,6 @@ function Bugs() {
           <option value="All">ALL</option>
               </select>
               </div>
-
-              <div>
-      <div className='text-center'>
-    <h1><u>{statusView} Bugs</u></h1>
-    </div>
     </div>
     {bugs ? statusView == "All" ?
     <div>

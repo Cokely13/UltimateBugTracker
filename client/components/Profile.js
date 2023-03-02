@@ -20,7 +20,7 @@ function Profile() {
 
   return (
     <div>
-    <h1 className='text-center'><u>Profile</u></h1>
+    <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Profile</h1>
     {user.bugs ?  user.bugs.map((bug) => {
               return (
 <div className='col ' key={(bug.id)} style={{marginTop: "50px", marginBottom: "50px", marginLeft: "auto", marginRight: "auto", width:"20rem"}}>

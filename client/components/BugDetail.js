@@ -90,7 +90,7 @@ function BugDetail() {
   return (
     <div>
     {bug ?
-        <div className='col' key={(bug.id)}>
+        <div className='col' style={{marginTop: "50px", marginBottom: "15px"}} key={(bug.id)}>
           <div className="card border border-5  border-primary rounded text-center" style={{width:"40rem", marginLeft: "auto", marginRight: "auto"}}>
           <h1>Name: {bug.name}</h1>
           <h1>Description: {bug.description}</h1>

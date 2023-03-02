@@ -63,39 +63,41 @@ function AddBug() {
 
   return (
   <div >
+    <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Add Bug</h1>
     <form>
+    <div className="container">
       <div >
-        <div>
-        <label> <h2 htmlFor="name" style={{marginRight: "10px"}}> Name: </h2></label>
+        <div className='row'>
+        <label> <h2 htmlFor="name"> Name: </h2></label>
           <input name='name' onChange={handleChange}  type="text" placeholder="Bug Name"/>
         </div>
-        <div>
-        <label> <h2 htmlFor="description" style={{marginRight: "10px"}}> Description: </h2></label>
+        <div className='row'>
+        <label> <h2 htmlFor="description"> Description: </h2></label>
           <input name='descriptuon' onChange={handleChange2}  type="text" placeholder="Describe the Bug"/>
         </div>
-        <div>
-        <label> <h2 htmlFor="steps" style={{marginRight: "10px"}}> Steps: </h2></label>
+        <div className='row'>
+        <label> <h2 htmlFor="steps"> Steps: </h2></label>
           <input name='steps' onChange={handleChange3} type="text" placeholder="Steps to bug"/>
         </div>
         <div>
-        <div >
-          <label> <h2 htmlFor="priority" style={{marginRight: "10px"}}>Priority: </h2></label>
-          <div>
-          <select  name="priority" onChange={handleChange4} className="priority">
+        <div className='row' >
+          <label> <h2 htmlFor="priority" >Priority: </h2></label>
+          <select  name="priority" onChange={handleChange4}>
         <option disabled selected value="priority">Select Priority</option>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
           </select>
-        </div> </div>
+         </div>
         <div >
-          <label> <h2 htmlFor="assigned" style={{marginRight: "10px"}}>Assign: </h2></label>
+          <label> <h2 htmlFor="assigned" >Assign: </h2></label>
           <div>
           <select  name="assigned" onChange={handleChange5} className="assigned">
         <option disabled selected value="assigned">Assign Bug</option>
         {users.map((( user) => <option key={user.id} value={user.id}>{user.username}</option>))}
           </select>
         </div> </div>
+      </div>
       </div>
       </div>
     </form>

@@ -16,7 +16,7 @@ function MediumPriority() {
   }, [])
   return (
     <div>
-      <h1 className='text-center'><u>Medium Priority</u></h1>
+      <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Medium Priority</h1>
       {bugs? bugs.filter((bug)=>bug.priority == 'Medium').map((bug) => {
       return(
         <div className='text-center' key={bug.id}>{bug.name} by {bug.assigned} </div>
