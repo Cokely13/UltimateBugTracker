@@ -17,21 +17,24 @@ function Profile() {
     // Safe to add dispatch to the dependencies array
   }, [])
 
-
+  console.log('user', user)
 
   return (
     <div>
     <div>Profile</div>
     {user.bugs ?  user.bugs.map((bug) => {
               return (
-
+<div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
+  <div className="container text-center mt-2">
+  <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
     <div key={(bug.id)}>
-          <h1>{bug.name}</h1>
+          <h1 className="card-title" >{bug.name}</h1>
           <h1>{bug.description}</h1>
           <h1>{bug.steps}</h1>
           <h1>{bug.status}</h1>
-          <h1>{bug.assigned}</h1>
-
+          </div>
+          </div>
+          </div>
     </div>
   )}) : <div>No Bugs</div>}
   </div>
