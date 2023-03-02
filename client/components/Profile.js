@@ -20,7 +20,7 @@ function Profile() {
 
   return (
     <div>
-    <h1 className='text-center'><u>Users</u></h1>
+    <h1 className='text-center'><u>Profile</u></h1>
     {user.bugs ?  user.bugs.map((bug) => {
               return (
 <div className='col ' key={(bug.id)} style={{marginTop: "50px", marginBottom: "50px", marginLeft: "auto", marginRight: "auto", width:"20rem"}}>

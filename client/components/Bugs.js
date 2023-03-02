@@ -93,7 +93,7 @@ function Bugs() {
 
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
   <div className="container text-center mt-2">
-  {bug.priority == "High" ?<div className="card border border-5  border-warning rounded text-center" style={{width:"18rem"}}>
+  {bug.priority == "High" ?<div className="card border border-5  border-danger rounded text-center" style={{width:"18rem"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
@@ -108,7 +108,7 @@ function Bugs() {
               {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
               </div>
               </div>
-  </div> : <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
+  </div> : <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem", color:"green"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
@@ -137,7 +137,7 @@ function Bugs() {
       return(
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
         <div className="container text-center mt-2">
-        {bug.priority == "High" ?<div className="card border border-5  border-warning rounded text-center" style={{width:"18rem"}}>
+        {bug.priority == "High" ?<div className="card border border-5  border-danger rounded text-center" style={{width:"18rem"}}>
         <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
         <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
         <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
@@ -154,7 +154,7 @@ function Bugs() {
                     </div>
         </div> : <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
   <div className="container text-center mt-2">
-  <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
+  <div className="card border border-5 border-primary  rounded text-center" style={{width:"18rem", color:"green"}}>
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name:<Link to={`/bugs/${bug.id}`}>  {bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned:<Link to={`/users/${bug.userId}`}>  {bug.assigned} </Link></h3>
@@ -207,7 +207,7 @@ function Bugs() {
       return(
   <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
         <div className="container text-center mt-2">
-        {bug.priority == "High" ?<div className="card border border-5  border-warning rounded text-center" style={{width:"18rem"}}>
+        {bug.priority == "High" ?<div className="card border border-5  border-danger rounded text-center" style={{width:"18rem"}}>
         <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
         <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
         <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>

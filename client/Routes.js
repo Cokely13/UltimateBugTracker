@@ -11,6 +11,9 @@ import Profile from './components/Profile'
 import AddBug from './components/AddBug';
 import FixedBugs from './components/FixedBugs';
 import Users from './components/Users';
+import HighPriority from './components/HighPriority';
+import LowPriority from './components/LowPriority'
+import MediumPriority from './components/MediumPriority'
 
 /**
  * COMPONENT
@@ -31,6 +34,9 @@ class Routes extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/bugs" component={Bugs} />
             <Route exact path="/bugs/add" component={AddBug} />
+            <Route exact path="/bugs/low" component={LowPriority} />
+            <Route exact path="/bugs/medium" component={MediumPriority} />
+            <Route exact path="/bugs/high" component={HighPriority} />
             <Route exact path="/bugs/fixed" component={FixedBugs} />
             <Route exact path="/bugs/:bugId" component={BugDetail} />
             <Route exact path="/users" component={Users} />
