@@ -19,7 +19,7 @@ function WorkingBugs() {
       <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Working Bugs</h1>
       {bugs? bugs.filter((bug)=>bug.status == 'Working').map((bug) => {
       return(
-        <div className='text-center' key={bug.id}>{bug.date} : {bug.name} by {bug.assigned} </div>
+        <div className='text-center' key={bug.id}>{bug.date} : <Link to={`/bugs/${bug.id}`}>{bug.name} </Link> by {bug.assigned} </div>
       )}) : <div></div>
 }
 

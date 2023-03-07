@@ -19,7 +19,7 @@ function LowPriority() {
       <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Low Priority</h1>
       {bugs? bugs.filter((bug)=>bug.priority == 'Low').map((bug) => {
       return(
-        <div className='text-center' key={bug.id}>{bug.name} by {bug.assigned} </div>
+        <div className='text-center' key={bug.id}> <Link to={`/bugs/${bug.id}`}>{bug.name} </Link> to {bug.assigned} </div>
       )}) : <div></div>
 }
 
