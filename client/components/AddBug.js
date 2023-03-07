@@ -65,6 +65,7 @@ function AddBug() {
       steps: steps,
       priority: priority,
       assigned: assignName,
+      dateAssigned: new Date,
       userId: assignId,
       projectId: projectId
     }
