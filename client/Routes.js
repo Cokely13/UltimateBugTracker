@@ -16,6 +16,8 @@ import LowPriority from './components/LowPriority'
 import MediumPriority from './components/MediumPriority'
 import WorkingBugs from './components/WorkingBugs';
 import NewBugs from './components/NewBugs'
+import Projects from './components/Projects.js';
+import ProjectDetail from './components/ProjectDetail';
 
 /**
  * COMPONENT
@@ -35,6 +37,8 @@ class Routes extends Component {
             <Route exact path="/home" component={Home} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/bugs" component={Bugs} />
+            <Route exact path="/projects" component={Projects} />
+            <Route exact path="/projects/:projectId" component={ProjectDetail} />
             <Route exact path="/bugs/add" component={AddBug} />
             <Route exact path="/bugs/low" component={LowPriority} />
             <Route exact path="/bugs/medium" component={MediumPriority} />

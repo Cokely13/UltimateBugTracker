@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
+
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
     {/* <h1>Ultimate Bug Tracker</h1> */}
@@ -33,6 +34,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <li><a className="dropdown-item" href="/bugs/medium">Medium</a></li>
             <li><a className="dropdown-item" href="/bugs/low">Low</a></li>
           </ul>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/projects" style={{marginLeft: "25px", marginRight: "25px"}}>Projects</a>
         </li>
         <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{marginLeft: "25px", marginRight: "25px"}}>
