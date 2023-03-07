@@ -87,6 +87,8 @@ function BugDetail() {
     history.push(`/bugs/${bug.id}`);
   }
 
+  console.log("bug", bug)
+
   return (
     <div>
     {bug ?
@@ -95,7 +97,7 @@ function BugDetail() {
           <h1>Name: {bug.name}</h1>
           <h1>Description: {bug.description}</h1>
           <h1>Steps: {bug.steps}</h1>
-          <h1>Status: {bug.status} <h5><button className='btn btn-primary' style={{marginTop: "15px"}} onClick={handleClick}>Update Status</button></h5></h1>
+          <h1>Status: {bug.status} <div><button className='btn btn-primary' style={{marginTop: "15px"}} onClick={handleClick}>Update Status</button></div></h1>
           {updateStatus == 1 ?
          <div>
           <div>
@@ -112,7 +114,7 @@ function BugDetail() {
               : <div></div>}
               </div>
               </div> : <div></div>}
-          <h1>Assigned: {bug.assigned} <h5><button className='btn btn-primary' style={{marginTop: "15px"}} onClick={handleClick2}>Update Assigned</button></h5></h1>
+          <h1>Assigned: {bug.assigned} <div><button className='btn btn-primary' style={{marginTop: "15px"}} onClick={handleClick2}>Update Assigned</button></div></h1>
          {updateAssign == 1 ?
          <div>
           {bug.assigned == "None" ?

@@ -4,20 +4,26 @@ import { useHistory  } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createBug } from '../store/allBugsStore'
+import {fetchProjects} from '../store/allProjectsStore'
 
 function AddBug() {
   const dispatch = useDispatch()
   const [name, setName] = useState();
   const [description, setDescription] = useState();
   const [steps, setSteps] = useState();
+  const [projectId, setProjectId] = useState();
   const [priority, setPriority] = useState();
   // const [assigned, setAssigned] = useState();
   const [assignId, setAssignId] = useState();
   let history = useHistory();
   const [assignName, setAssignName] = useState();
   const users = useSelector((state) => state.allUsers)
+  const projects = useSelector((state) => state.allProjects)
   useEffect(() => {
     dispatch(fetchUsers())
+  }, [])
+  useEffect(() => {
+    dispatch(fetchProjects())
   }, [])
 
   const handleChange = (event) => {
@@ -46,6 +52,11 @@ function AddBug() {
     setAssignId(event.target.value)
   }
 
+  const handleChange6 = (event) => {
+    event.preventDefault()
+    setProjectId(event.target.value)
+  }
+
   const handleClick = (event) => {
     event.preventDefault()
     const newBug = {
@@ -55,6 +66,7 @@ function AddBug() {
       priority: priority,
       assigned: assignName,
       userId: assignId,
+      projectId: projectId
     }
     dispatch(createBug(newBug))
     history.push(`/home`)
@@ -66,6 +78,14 @@ function AddBug() {
   <div style={{marginLeft: "25px"}} >
     <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "50px"}}>Add Bug</h1>
     <form>
+    <div className="form-group row">
+          <label class="col-sm-2 col-form-label"> <h2 htmlFor="assigned" style={{marginLeft: "15px"}} >Project Name </h2></label>
+          <div className="col-sm-10" style={{width: "20rem"}}>
+          <select style={{width: "10rem", height: "50px", marginLeft: "9rem"}}  name="assigned" onChange={handleChange6} className="assigned">
+        <option disabled selected value="assigned">Select Project</option>
+        {projects.map((( project) => <option key={project.id} value={project.id}>{project.name}</option>))}
+          </select>
+        </div> </div>
         <div className="form-group row">
         <label class="col-sm-2 col-form-label" style={{marginLeft: "25px"}}> <h2 htmlFor="name"> Bug Name </h2></label>
         <div className="col-sm-10" style={{width: "30rem"}} >

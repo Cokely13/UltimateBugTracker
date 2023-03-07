@@ -7,12 +7,16 @@ import auth from './auth'
 import singleBugReducer from './singleBugStore'
 import usersReducer from './allUsersStore'
 import singleUserReducer from './singleUserStore'
+import projectsReducer from './allProjectsStore'
+import singleProjectReducer from './singleProjectStore'
 
 const reducer = combineReducers({ auth,
 allBugs: bugsReducer,
 singleBug: singleBugReducer,
 allUsers: usersReducer,
-singleUser: singleUserReducer })
+singleUser: singleUserReducer,
+singleProject: singleProjectReducer,
+allProjects: projectsReducer  })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
