@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const { models: { Bug, User}} = require('../db')
+const { models: { Bug, User, Project}} = require('../db')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const bugs = await Bug.findAll({include: User})
+    const bugs = await Bug.findAll({include: [User, Project]})
     res.json(bugs)
   } catch (err) {
     next(err)
@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const bugId = req.params.id
-    const bug = await Bug.findByPk(req.params.id, {include: User });
+    const bug = await Bug.findByPk(req.params.id, {include: [User, Project]});
     // , where: {
     //   userId: req.params.id
     // }
