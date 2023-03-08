@@ -49,6 +49,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </ul>
         </li>
         <li className="nav-item">
+          <a className="nav-link" href="/users" style={{marginLeft: "25px", marginRight: "25px"}}>Users</a>
+        </li>
+        <li className="nav-item">
       <a className="nav-link" href="#" onClick={handleClick} style={{marginLeft: "25px", marginRight: "25px"}}>
             Logout
           </a>

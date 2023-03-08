@@ -14,7 +14,7 @@ function Users() {
 
   return (
     <div>
-      <h1 className='text-center'><u>Users</u></h1>
+      <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Users</h1>
       {users.map((user) => {
         return(
           <div key={user.id}>

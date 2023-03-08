@@ -18,13 +18,26 @@ function FixedBugs() {
   return (
     <div>
       <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Fixed Bugs</h1>
+      <div className="row">
       {bugs? bugs.filter((bug)=>bug.status == 'Fixed').map((bug) => {
       return(
-        <div className='text-center' key={bug.id}>{bug.date} : <Link to={`/bugs/${bug.id}`}>{bug.name} </Link> by {bug.assigned} </div>
-      )}) : <div></div>
+<div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
+        <div className="container text-center mt-2">
+    <div className="card border border-5  border-dark rounded text-center" style={{width:"18rem"}}>
+    <div className='text-center'>Project Name: <Link to={`/projects/${bug.projectId}`}>{bug.project.name} </Link> </div>
+    <div>Bug Name: <Link to={`/bugs/${bug.id}`}>{bug.name} </Link> </div>
+    <div >Priority: {bug.priority} </div>
+    <div >Date: {bug.date} </div>
+    {bug.user? <div>Assigned to :  <Link to={`/users/${bug.user.id}`}>{bug.assigned} </Link>  </div>: <div></div>}
+    <div >Date Fixed: {bug.dateFixed} </div>
+    </div>
+    </div>
+    </div>
+  )}) : <div></div>
 }
 
     </div>
+     </div>
   )
 }
 

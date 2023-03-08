@@ -94,6 +94,7 @@ function Bugs() {
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
   <div className="container text-center mt-2">
   {bug.priority == "High" ?<div className="card border border-5  border-danger rounded text-center" style={{width:"18rem"}}>
+  {bug.projectId ? <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Project Name:<Link to={`/projects/${bug.projectId}`}> {bug.project.name}</Link></h2> : <div>HEY</div>}
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
@@ -109,6 +110,7 @@ function Bugs() {
               </div>
               </div>
   </div> : <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem", color:"green"}}>
+  {bug.projectId ? <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Project Name:<Link to={`/projects/${bug.projectId}`}> {bug.project.name}</Link></h2> : <div>HEY</div>}
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
@@ -138,6 +140,7 @@ function Bugs() {
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
         <div className="container text-center mt-2">
         {bug.priority == "High" ?<div className="card border border-5  border-danger rounded text-center" style={{width:"18rem"}}>
+        {bug.projectId ? <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Project Name:<Link to={`/projects/${bug.projectId}`}> {bug.project.name}</Link></h2> : <div>HEY</div>}
         <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
         <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
         <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
@@ -155,6 +158,7 @@ function Bugs() {
         </div> : <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
   <div className="container text-center mt-2">
   <div className="card border border-5 border-primary  rounded text-center" style={{width:"18rem", color:"green"}}>
+  {bug.projectId ? <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Project Name:<Link to={`/projects/${bug.projectId}`}> {bug.project.name}</Link></h2> : <div>HEY</div>}
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name:<Link to={`/bugs/${bug.id}`}>  {bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned:<Link to={`/users/${bug.userId}`}>  {bug.assigned} </Link></h3>
@@ -184,7 +188,8 @@ function Bugs() {
       return(
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
   <div className="container text-center mt-2">
-  <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
+  <div className="card border border-5  border-dark rounded text-center" style={{width:"18rem"}}>
+  {bug.projectId ? <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Project Name:<Link to={`/projects/${bug.projectId}`}> {bug.project.name}</Link></h2> : <div>HEY</div>}
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name:<Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}>  {bug.assigned} </Link></h3>
@@ -208,6 +213,7 @@ function Bugs() {
   <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
         <div className="container text-center mt-2">
         {bug.priority == "High" ?<div className="card border border-5  border-danger rounded text-center" style={{width:"18rem"}}>
+        {bug.projectId ? <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Project Name:<Link to={`/projects/${bug.projectId}`}> {bug.project.name}</Link></h2> : <div>HEY</div>}
         <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}> {bug.name}</Link></h2>
         <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
         <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}> {bug.assigned}</Link></h3>
@@ -224,6 +230,7 @@ function Bugs() {
                     </div>
         </div> :
   <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
+    {bug.projectId ? <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Project Name:<Link to={`/projects/${bug.projectId}`}> {bug.project.name}</Link></h2> : <div>HEY</div>}
   <h2 className="card-title" style={{marginTop: "15px", marginBottom: "15px"}}>Bug Name: <Link to={`/bugs/${bug.id}`}>{bug.name}</Link></h2>
   <h2 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Priority:  {bug.priority}</h2>
   <h3 className="card-text" style={{marginTop: "15px", marginBottom: "15px"}}>Assigned: <Link to={`/users/${bug.userId}`}>  {bug.assigned}</Link></h3>
