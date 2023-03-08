@@ -24,8 +24,8 @@ async function seed() {
   ])
 
   const bugs = await Promise.all([
-    Bug.create({ name: 'crash', description: 'whole system crash', steps: "crash on load" }),
-    Bug.create({ name: 'freeze', description: 'screen locks', steps: "when adding new user" }),
+    Bug.create({ name: 'crash', description: 'whole system crash', steps: "crash on load", projectId: 2 }),
+    Bug.create({ name: 'freeze', description: 'screen locks', steps: "when adding new user", projectId: 1 }),
   ])
 
   console.log(`seeded ${users.length} users`)

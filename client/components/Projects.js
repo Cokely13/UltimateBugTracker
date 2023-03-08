@@ -20,17 +20,23 @@ function Projects() {
   return (
     <div>
       <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Projects</h1>
+      <div className="row">
       {projects? projects.map((project) => {
       return(
-        <div key={project.id}>
+        <div className='col' key={(project.id)} style={{marginTop: "15px"}}>
+           <div className="container text-center mt-2">
+        <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
         <div className='text-center' ><Link to={`/projects/${project.id}`}>{project.name} </Link>
         <div> # of Bugs: {project.bugs.length}</div>
         </div>
         </div>
+        </div>
+    </div>
+
       )}) : <div></div>
 }
-
-    </div>
+</div>
+</div>
   )
 }
 
