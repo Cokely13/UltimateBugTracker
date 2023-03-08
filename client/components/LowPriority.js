@@ -17,6 +17,7 @@ function LowPriority() {
   return (
     <div>
       <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Low Priority</h1>
+      <div className="row">
       {bugs? bugs.filter((bug)=>bug.priority == 'Low').map((bug) => {
       return(
         <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
@@ -30,7 +31,7 @@ function LowPriority() {
         </div>
       )}) : <div></div>
 }
-
+</div>
     </div>
   )
 }
