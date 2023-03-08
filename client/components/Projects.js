@@ -25,10 +25,10 @@ function Projects() {
       return(
         <div className='col' key={(project.id)} style={{marginTop: "15px"}}>
            <div className="container text-center mt-2">
-        <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem"}}>
-        <div className='text-center' ><Link to={`/projects/${project.id}`}>{project.name} </Link>
-        <div> # of Bugs: {project.bugs.length}</div>
-        </div>
+        <div className="card border border-5  border-primary rounded text-center" style={{padding: "10px"}}>
+        <h1 className='text-center' ><Link to={`/projects/${project.id}`}>{project.name} </Link>
+        </h1>
+        <h2> # of Bugs: {project.bugs.length}</h2>
         </div>
         </div>
     </div>

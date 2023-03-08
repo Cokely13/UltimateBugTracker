@@ -14,12 +14,16 @@ function Users() {
 
   return (
     <div>
-      <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Users</h1>
+      <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "20rem", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>Users</h1>
       {users.map((user) => {
         return(
-          <div key={user.id}>
+          <div className='col' key={user.id}>
+             <div className="card border border-5  border-primary rounded text-center" style={{padding: "10px", width: "30%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "15px"}}>
+    <div>
            <h1><Link to={`/users/${user.id}`} >{user.username}</Link></h1>
             <h2># of Bugs: {user.bugs.length}</h2>
+          </div>
+          </div>
           </div>
         )
       })}

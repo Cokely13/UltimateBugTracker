@@ -39,11 +39,8 @@ function Profile() {
     <div>
           {projects? projects.filter((project) => project.id == bug.projectId).map((project) => {
               return (
-                <h1 className="card-title" key={project.id}> Project Name:<Link to={`/projects/${project.id}`}>{project.name} </Link></h1>
+                <h1 className="card-title" key={project.id}> Project Name: <Link to={`/projects/${project.id}`}>{project.name} </Link></h1>
               )}) : <div></div>}
-
-
-          {/* <h1 className="card-title" >{bug.project.name}</h1> : <div></div>} */}
           <h2 className="card-title" >Bug Name: {bug.name}</h2>
           <h4>Description: {bug.description}</h4>
           <h4>Steps: {bug.steps}</h4>

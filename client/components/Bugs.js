@@ -14,6 +14,7 @@ function Bugs() {
   const [status, setStatus] = useState("");
   const [bugId, setBugId] = useState("");
   const [assignId, setAssignId] = useState();
+  const [submitId, setSubmitId] = useState();
   const [assignName, setAssignName] = useState();
   const users = useSelector((state) => state.allUsers)
   useEffect(() => {
@@ -36,9 +37,11 @@ function Bugs() {
 
   const handleChange3 = (event, bug) => {
     event.preventDefault()
-    setAssignId(bug.id)
     const person = users.filter((user)=>user.id == event.target.value)
     setAssignName(person[0].username)
+    setAssignId(person[0].id)
+    setSubmitId(bug.id)
+    console.log("submit", submitId)
   }
 
   const handleSubmit2 = (event, bug) => {
@@ -106,7 +109,7 @@ function Bugs() {
             {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
               </select>
               </div>
-              {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+              {submitId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
               </div>
               </div>
   </div> : <div className="card border border-5  border-primary rounded text-center" style={{width:"18rem", color:"green"}}>
@@ -119,10 +122,10 @@ function Bugs() {
           <div style={{ marginBottom: "35px"}}>
       <select onChange={event => handleChange3(event, bug)}  name="filterEvents" className='custom-select'>
       <option value="">Assign Bug</option>
-            {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
+            {users.map((user) => <option key={user.id} value={user.id}>{user.username}</option>)}
               </select>
               </div>
-              {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+              {submitId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
               </div>
               </div>
   </div>}
@@ -152,7 +155,7 @@ function Bugs() {
                   {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
                     </select>
                     </div>
-                    {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+                    {submitId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
                     </div>
                     </div>
         </div> : <div className='col' key={(bug.id)} style={{marginTop: "15px"}}>
@@ -225,7 +228,7 @@ function Bugs() {
                   {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
                     </select>
                     </div>
-                    {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+                    {submitId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
                     </div>
                     </div>
         </div> :
@@ -241,7 +244,7 @@ function Bugs() {
             {users.map((event) => <option key={event.id} value={event.id}>{event.username}</option>)}
               </select>
               </div>
-              {assignId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
+              {submitId == bug.id ? <button className='btn btn-primary' style={{width:"10rem", marginLeft:"auto", marginRight: "auto", marginBottom: "15px"}} onClick={event => handleSubmit2(event, bug)}>Assign</button> : <div></div>}
               </div> : <div>
           <div style={{marginTop: "15px", marginBottom: "15px"}}>
       <select onChange={event => handleChange2(event, bug)} name="filterEvents" className='custom-select'>

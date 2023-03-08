@@ -80,7 +80,7 @@ function AddBug() {
     <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "50px"}}>Add Bug</h1>
     <form>
     <div className="form-group row">
-          <label class="col-sm-2 col-form-label"> <h2 htmlFor="assigned" style={{marginLeft: "15px"}} >Project Name </h2></label>
+          <label class="col-sm-2 col-form-label"> <h2 htmlFor="assigned" style={{marginLeft: "25px"}} >Project Name </h2></label>
           <div className="col-sm-10" style={{width: "20rem"}}>
           <select style={{width: "10rem", height: "50px", marginLeft: "9rem"}}  name="assigned" onChange={handleChange6} className="assigned">
         <option disabled selected value="assigned">Select Project</option>
@@ -90,7 +90,7 @@ function AddBug() {
         <div className="form-group row">
         <label class="col-sm-2 col-form-label" style={{marginLeft: "25px"}}> <h2 htmlFor="name"> Bug Name </h2></label>
         <div className="col-sm-10" style={{width: "30rem"}} >
-          <input  style={{width: "30rem", height: "50px"}} name='name' onChange={handleChange}  type="text" placeholder="   Bug Name"/>
+          <input  style={{width: "30rem", height: "50px", }} name='name' onChange={handleChange}  type="text" placeholder="   Bug Name"/>
           </div>
         </div>
         <div className="form-group row">
